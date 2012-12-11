@@ -1,0 +1,25 @@
+!
+mpls label protocol ldp
+!
+!
+interface Loopback1
+ ipv6 address 3003::1/128
+ ipv6 ospf 1 are 0
+!
+interface Serial1/0
+ ipv6 address 2003::2/64
+ ipv6 ospf 1 are 0
+ no shutdown
+ mpls label protocol ldp
+ mpls ip
+!
+interface Serial1/1
+ ipv6 address 2002::1/64 
+  ipv6 ospf 1 are 0
+ no shutdown
+ mpls label protocol ldp
+ mpls ip
+!
+router ospf 1
+ network 1.0.0.3
+!
