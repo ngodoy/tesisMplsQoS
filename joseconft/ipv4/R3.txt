@@ -6,13 +6,13 @@ interface Loopback1
  ip address 10.10.10.3 255.255.255.255
 !
 interface Serial1/0
- ip address 192.168.1.38 255.255.255.252
+ ip address 192.168.111.38 255.255.255.252
  no shutdown
  mpls label protocol ldp
  mpls ip
 !
 interface Serial1/1
- ip address 192.168.1.42 255.255.255.252
+ ip address 192.168.111.42 255.255.255.252
  no shutdown
  mpls label protocol ldp
  mpls ip
@@ -20,5 +20,5 @@ interface Serial1/1
 router ospf 1
  log-adjacency-changes
  network 10.10.10.0 0.0.0.0 area 0
- network 192.168.1.0 0.0.0.255 area 0
+ network 192.168.111.0 0.0.0.255 area 0
 !

@@ -1,0 +1,118 @@
+autostart = False
+version = 0.8.3.1
+[127.0.0.1:7200]
+    workingdir = C:\Users\ngodoy\AppData\Local\Temp
+    udp = 10000
+    [[3640]]
+        image = G:\Series\Arrow\Cisco\IOS\c3640\c3640-jk9s-mz.124-16.image
+        sparsemem = True
+        ghostios = True
+        chassis = 3640
+    [[ROUTER R1]]
+        model = 3640
+        console = 2001
+        aux = 2501
+        cnfg = R1.cfg
+        slot0 = NM-1FE-TX
+        f0/0 = PC2 e2
+        slot1 = NM-4T
+        s1/0 = R3 s1/0
+        s1/1 = R2 s1/1
+        x = 128.0
+        y = -95.0
+        z = 1.0
+    [[ROUTER R2]]
+        model = 3640
+        console = 2002
+        aux = 2502
+        cnfg = R2.cfg
+        slot0 = NM-1FE-TX
+        f0/0 = PC1 e2
+        slot1 = NM-4T
+        s1/0 = R3 s1/1
+        s1/1 = R1 s1/1
+        x = -266.0
+        y = -117.0
+        z = 1.0
+    [[ROUTER R3]]
+        model = 3640
+        console = 2003
+        aux = 2503
+        cnfg = R3.cfg
+        slot0 = NM-1FE-TX
+        slot1 = NM-4T
+        s1/0 = R1 s1/0
+        s1/1 = R2 s1/0
+        x = -61.0
+        y = -279.0
+        z = 1.0
+[vbox 127.0.0.1:11525]
+    workingdir = C:\Users\ngodoy\AppData\Local\Temp
+    udp = 20900
+    [[VBoxDevice]]
+        image = WXPC
+        nics = 2
+        netcard = e1000
+    [[VBOX PC2]]
+        image = W7Sotflatin
+        e2 = R1 f0/0
+        x = 129.5
+        y = 7.5
+        z = 1.0
+    [[VBOX PC1]]
+        e2 = R2 f0/0
+        x = -263.5
+        y = 5.5
+        z = 1.0
+[GNS3-DATA]
+    configs = .
+    [[NOTE 1]]
+        text = "s1/0"
+        x = 63.652986052
+        y = 47.6981409074
+        interface = R3 s1/0
+    [[NOTE 2]]
+        text = "s1/1"
+        x = 3.56165925586
+        y = 49.0810652344
+        interface = R3 s1/1
+    [[NOTE 3]]
+        text = "s1/1"
+        x = 72.9995374084
+        y = 22.1923723223
+        interface = R2 s1/1
+    [[NOTE 4]]
+        text = "s1/0"
+        x = 62.4383407441
+        y = -5.08106523444
+        interface = R2 s1/0
+    [[NOTE 5]]
+        text = "f0/0"
+        x = 33.6153118017
+        y = 61.9952671123
+        interface = R2 f0/0
+    [[NOTE 6]]
+        text = "s1/0"
+        x = 2.34701394805
+        y = -3.69814090744
+        interface = R1 s1/0
+    [[NOTE 7]]
+        text = "s1/1"
+        x = -6.99953740845
+        y = 21.8076276777
+        interface = R1 s1/1
+    [[NOTE 8]]
+        text = "f0/0"
+        x = 33.3636213383
+        y = 61.9983472099
+        interface = R1 f0/0
+    [[NOTE 9]]
+        text = "e2"
+        x = 32.1363786617
+        y = -10.4983472099
+        interface = PC2 e2
+    [[NOTE 10]]
+        text = "e2"
+        x = 31.8846881983
+        y = -10.4952671123
+        interface = PC1 e2
