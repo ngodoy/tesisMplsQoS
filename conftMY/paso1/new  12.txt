@@ -1,0 +1,23 @@
+access-list 101 permit udp any any eq 9000
+access-list 102 permit udp any any eq 8900
+access-list 103 permit udp any any eq 8800
+
+
+class-map match-any tv
+ match access-group 101
+class-map match-any archivo
+ match access-group 102
+class-map match-any sonido
+ match access-group 103
+!
+!
+policy-map qos
+ class tv
+  bandwidth percent 10
+ class archivo
+  priority percent 55
+ class sonido
+  bandwidth percent 10
+!
+interface Serial0/0
+ service-policy output qos

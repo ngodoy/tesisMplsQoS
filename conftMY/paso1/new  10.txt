@@ -1,0 +1,20 @@
+class-map match-any tv
+ match protocol rtsp
+class-map match-any archivo
+ match protocol tftp
+ match protocol ftp
+class-map match-any video
+ match protocol rtp
+ match protocol rtcp
+!
+!
+policy-map qos
+ class tv
+  bandwidth percent 10
+ class archivo
+  priority percent 55
+ class video
+  bandwidth percent 10
+!
+interface Serial0/0
+ service-policy output qos

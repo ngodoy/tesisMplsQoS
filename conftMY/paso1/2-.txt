@@ -1,0 +1,9 @@
+MPLS4 (config) # ip cef //Habilitamos el protocolo CEF en el router
+Configuración y pruebas de funcionamiento de la interconexión de redes heterogéneas con troncal MPLS
+37
+MPLS4 (config) # mpls label protocol ldp //Definimos el protocolo LDP como protocolo para la distribución de las etiquetas
+MPLS4 (config) # mpls ip //Habilitamos MPLS a nivel global
+Una vez configurado el protocolo que usará el router para realizar la conmutación de etiquetas (CEF) y su distribución (LDP), procedemos a realizar la configuración de OSPF para poder hacer el routing interno.
+MPLS4 (config) # router ospf 1 // Configuramos el enrutamiento interno con OSPF con el identificador 1
+MPLS4 (config-router) # mpls traffic-eng router-id loopback0 //Usaremos la interfaz de Loopback como identificador del router para Traffic Engineering
+MPLS4 (config-router) # mpls traffic-eng area 0 // Configuramos el area 0 como la area en la que habiltamos el traffic engineering

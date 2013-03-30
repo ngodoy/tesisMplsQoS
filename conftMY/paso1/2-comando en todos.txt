@@ -1,0 +1,20 @@
+rx(config)# ip cef
+rx(config)# mpls label protocol ldp 
+rx(config)# mpls ip
+
+rx(config)# int ser x/x
+rx(config-if)# mpls ip
+
+
+rx(config)# router ospf 1 
+rx(config-router)# mpls traffic-eng router-id loopback0 
+rx(config-router)# mpls traffic-eng area 0
+
+verificar 
+
+rx#sh mpls forwarding-table
+rx#sh ip router
+rx#sh ip int br
+
+
+tclsh 
